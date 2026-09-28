@@ -72,7 +72,8 @@ def enter_otp_and_login(otp_code: str, launcher_title: str = "FINAL FANTASY XIV 
     time.sleep(max(delay, 0.5))
 
     # Type the 6-digit OTP code (field should be empty on login page)
-    pyautogui.typewrite(otp_code, interval=0.03)
+    pyperclip.copy(otp_code)
+    pyautogui.hotkey('ctrl', 'v')
     time.sleep(0.2)
 
     # Press Enter to submit login
